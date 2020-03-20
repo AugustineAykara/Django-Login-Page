@@ -15,18 +15,17 @@
     <div class="form-style-10">
         <h1>LogIn</h1>
         
-        {% for message in messages %}
-        <h2> {{message}} </h2>
-        {% endfor %}
-
         <form action="login" method="POST">
 
             {% csrf_token %}
 
             <div class="section">Username & Password</div>
+            {% for message in messages %}
+            <h3 style="color: red"> {{message}} </h3>
+            {% endfor %}
             <div class="inner-wrap">
-                <label>Username <input type="text" name="username" /></label>
-                <label>Password <input type="password" name="password" /></label>
+                <label>Username <input type="text" name="username" required/></label>
+                <label>Password <input type="password" name="password" required/></label>
             </div>
 
             <div class="button-section">
