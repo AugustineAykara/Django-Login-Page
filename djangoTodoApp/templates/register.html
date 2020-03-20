@@ -1,0 +1,51 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/registerStyles.css' %}">
+    <title>Register</title>
+</head>
+
+
+<body>
+    <div class="form-style-10">
+        <h1>Sign Up Now!<span>Sign up and tell us what you think of the site!</span></h1>
+
+        {% for message in messages %}
+        <h2> {{message}} </h2>
+        {% endfor %}
+        
+        <form action="register" method="POST">
+
+            {% csrf_token %}
+
+            <div class="section"><span>1</span>First Name & Last Name</div>
+            <div class="inner-wrap">
+                <label>Your first name <input type="text" name="first_name" /></label>
+                <label>Your last name <input type="text" name="last_name" /></label>
+            </div>
+
+            <div class="section"><span>2</span>Email & Username</div>
+            <div class="inner-wrap">
+                <label>Email Address <input type="email" name="email" /></label>
+                <label>Username <input type="text" name="username" /></label>
+            </div>
+
+            <div class="section"><span>3</span>Passwords</div>
+            <div class="inner-wrap">
+                <label>Password <input type="password" name="password1" /></label>
+                <label>Confirm Password <input type="password" name="password2" /></label>
+            </div>
+            <div class="button-section">
+                <input type="submit" name="Sign Up" />
+            </div>
+
+        </form>
+    </div>
+</body>
+
+</html>

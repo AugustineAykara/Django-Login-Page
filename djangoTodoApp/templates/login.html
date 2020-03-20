@@ -1,0 +1,40 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/registerStyles.css' %}">
+    <title>Login</title>
+</head>
+
+
+<body>
+    <div class="form-style-10">
+        <h1>LogIn</h1>
+        
+        {% for message in messages %}
+        <h2> {{message}} </h2>
+        {% endfor %}
+
+        <form action="login" method="POST">
+
+            {% csrf_token %}
+
+            <div class="section">Username & Password</div>
+            <div class="inner-wrap">
+                <label>Username <input type="text" name="username" /></label>
+                <label>Password <input type="password" name="password" /></label>
+            </div>
+
+            <div class="button-section">
+                <input type="submit" name="login" value="LogIn" />
+            </div>
+
+        </form>
+    </div>
+</body>
+
+</html>
