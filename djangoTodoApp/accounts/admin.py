@@ -1,6 +1,6 @@
 from django.contrib import admin
-from .models import userTodo
+from .models import UserTodo
 
 # Register your models here.
 
-admin.site.register(userTodo)
+admin.site.register(UserTodo)

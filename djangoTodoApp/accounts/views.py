@@ -4,7 +4,8 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User, auth 
 # for print message
 from django.contrib import messages
-
+# to import UserTodo class from model.py
+from accounts.models import UserTodo
 
 # Create your views here.
 
@@ -29,6 +30,8 @@ def register(request):
             else:
                 user = User.objects.create_user(first_name=first_name, last_name=last_name, username=username, email=email, password=password)
                 user.save()
+                todo = UserTodo(userName=username)
+                todo.save()
                 return redirect('login')
             
         else:
